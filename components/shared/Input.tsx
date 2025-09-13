@@ -2,11 +2,11 @@
 import { useState } from "react"
 import Image from "next/image"
 
-const Input = ({ label, placeholder, name, error, type = "text" }: { label: string, placeholder?: string, name: string, error?:string, type?: "text" | "number" | "password" | "tel" }) => {
+const Input = ({ label, placeholder, name, error,defaultValue , type = "text" }: { label: string, placeholder?: string, name: string, error?:string , defaultValue?:string|undefined, type?: "text" | "number" | "password" | "tel" }) => {
     const [showPassword, setShowPassword] = useState(false)
     return (
         <div className='relative flex flex-col gap-2'>
-            <input type={type !== "password" ? type : (showPassword ? "text" : "password")} name={name} id={name} placeholder={placeholder}
+            <input type={type !== "password" ? type : (showPassword ? "text" : "password")} name={name} id={name} placeholder={placeholder} defaultValue={defaultValue||""}
                 className={`outline-0 rounded-md ring ring-gray-400 focus:ring-primary peer pt-3 pb-2 px-4 w-full`} />
             {type === "password" &&
                 <Image src={`/svgs/eye-${showPassword ? "hide" : "show"}-password.svg`}
