@@ -1,9 +1,9 @@
 "use client"
 import { AuthMode } from '@/types/AuthMode.type'
 import Image from 'next/image'
-import Input from '../shared/Input'
 import Link from 'next/link'
 import { useActionState } from 'react'
+import Input from '../shared/Input'
 import { login } from '@/lib/actions/auth'
 
 const Auth = ({ mode }: { mode: AuthMode }) => {
@@ -37,10 +37,11 @@ const Auth = ({ mode }: { mode: AuthMode }) => {
                             از قبل حسابی دارید؟
                         </Link>
                     }
+                    <div className='flex flex-col gap-3 items-center'>
                     <span className='text-gray-600 text-center'>یا ورود از طریق</span>
                     <div className='flex justify-center gap-4 items-center'>
-
                         {["facebook", "linkedin", "google"].map(item => <Image src={`/svgs/${item}.svg`} className='cursor-pointer' alt={item} key={item} width={32} height={32} />)}
+                    </div>
                     </div>
                 </form>
             </section>
