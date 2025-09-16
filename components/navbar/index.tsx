@@ -30,7 +30,7 @@ const Navbar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
                 <Link onClick={closeMenu} href=''>درباره رنتیفای</Link>
                 <div className='md:hidden flex flex-col mt-auto mb-2 gap-2.5 items-center'>
                     {isLoggedIn ?
-                        <Link onClick={closeMenu} href="/">حساب من</Link> :
+                        <Link onClick={closeMenu} href="/dashboard">حساب من</Link> :
                         <Link onClick={closeMenu} href="/auth?mode=login">ورود | ثبت نام</Link>
                     }
                     <Link onClick={closeMenu} href="" className='text-white bg-primary hover:bg-primary/90 duration-200 px-4 py-2 rounded-md'>ثبت آگهی رایگان</Link>
@@ -39,7 +39,7 @@ const Navbar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
             </div>
             <div className='md:flex hidden gap-2 items-center '>
                 {isLoggedIn ?
-                    <Link href="/">حساب من</Link> :
+                    <Link href="/dashboard">حساب من</Link> :
                     <Link href="/auth?mode=login">ورود | ثبت نام</Link>
                 }
                 <Link href="" className='text-white bg-primary hover:bg-primary/90 duration-200 px-4 py-2 rounded-md'>ثبت آگهی رایگان</Link>
