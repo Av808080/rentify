@@ -6,9 +6,9 @@ import { comparePassword, hashPassword } from "@/helpers/hashPassword";
 import { createToken } from "@/helpers/token";
 import { Role } from "@/types/user.type";
 import { clearAccessToken, setAccessToken } from "@/helpers/accessToken";
-import { LoginState } from "@/types/prevState.types";
+import { PreviousState } from "@/types/prevState.types";
 
-export async function login(mode: AuthMode, _: LoginState, formData: FormData) {
+export async function login(mode: AuthMode, _: PreviousState, formData: FormData) {
   const firstName = formData.get("firstName") as string;
   const lastName = formData.get("lastName") as string;
   const phone = formData.get("phone") as string;
@@ -46,7 +46,7 @@ export async function login(mode: AuthMode, _: LoginState, formData: FormData) {
         values,
         errors: {
           ...errors,
-          phone: "تلفن همراه را وارد کنید.",
+          phone: "شماره همراه را وارد کنید.",
         },
       };
     if (
@@ -104,7 +104,7 @@ export async function login(mode: AuthMode, _: LoginState, formData: FormData) {
         },
       };
       await userCollection.insertOne({ ...payload });
-      await setAccessToken(createToken(payload));
+      await setAccessToken(createToken({...payload , password}));
     } catch (err) {
       console.log({ err });
     }
