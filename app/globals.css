@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "../Vazirmatn-font-face.css";
+@import "uploadthing/tw/v4";
+@source "../node_modules/@uploadthing/react/dist";
 
 @theme {
   --color-primary: #0d6efd;
