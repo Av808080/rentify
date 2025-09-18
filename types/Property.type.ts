@@ -1,0 +1,22 @@
+export type Property = {
+  type: "Apartment" | "Villa" | "Villa_Apartment";
+  mortgage_value: number;
+  rent_value: number;
+  infrastructure_area: number;
+  construction_year: number;
+  geoLoaction: "North" | "South";
+  area: number;
+  city: "Tehran" | "Karaj";
+  district: string;
+  address: string;
+  facilities: string[];
+  lat: number;
+  lng: number;
+  number_of_bedrooms: number;
+  floor: number;
+  apartment_per_floor: number;
+  all_floors: number;
+  description: string;
+  is_empty: boolean;
+  imageUrls: string[];
+};
